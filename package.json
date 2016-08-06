@@ -1,0 +1,27 @@
+{
+  "name": "folke-webpack-config",
+  "version": "1.0.0",
+  "description": "A default webpack config",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sidoine De Wispelaere",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^1.13.1",
+    "less-loader": "^2.2.3",
+    "style-loader": "^0.13.1",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10",
+    "typings": "^1.3.2",
+    "raw-loader": "^0.5.1",
+    "less": "^2.7.1",
+    "file-loader": "^0.9.0"
+  },
+  "repository": {
+    "url": "https://github.com/folkelib/folke-webpack-config.git"
+  }
+}
