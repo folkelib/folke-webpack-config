@@ -1,11 +1,32 @@
 ﻿const extractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
+const fs = require('fs');
+
+const environment = process.env.ASPNETCORE_ENVIRONMENT || process.env.NODE_ENV;
+const production = environment.startsWith("prod") || environment == "staging";
+
+const plugins = [ new extractTextPlugin('[name].css') ];
+if (production) {
+    plugins.push(new webpack.optimize.UglifyJsPlugin());
+}
+
+const files = fs.readdirSync("./src");
+const entries = {};
+for (let file of files) {
+    if (!file.match(/\.d\.ts$/)) {
+        const match = file.match(/^(.*)\.ts$/);
+        if (match) {
+            entries[match[1]] = "./src/" + file;
+        }
+    }
+}
 
 module.exports = {
-    entry: './src/index.ts',
+    entry: entries,
     output: {
         path: 'wwwroot',
-        filename: 'index.js',
+        filename: '[name].js',
         publicPath: '/'
     },
     resolve: {
@@ -21,8 +42,6 @@ module.exports = {
           { test: /\.(jpe?g|gif|png|eot|svg|woff2?|ttf)(\?.*)?$/, loader: 'file-loader' }
         ]
     },
-    plugins: [
-        new extractTextPlugin('[name].css')
-    ],
+    plugins: plugins,
     devtool: 'source-map',
 }
