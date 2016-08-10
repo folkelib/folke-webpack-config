@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const fs = require('fs');
 
 const environment = process.env.ASPNETCORE_ENVIRONMENT || process.env.NODE_ENV;
-const production = environment.startsWith("prod") || environment == "staging";
+const production = environment && (environment.startsWith("prod") || environment == "staging");
 
 const plugins = [ new extractTextPlugin('[name].css') ];
 if (production) {
