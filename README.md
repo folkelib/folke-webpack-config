@@ -6,11 +6,22 @@ Browse to your source directory.
 
 ```
 npm init
-npm install folke-webpack-config --save-dev
+npm install webpack typings folke-webpack-config --save-dev
+typings init
 ```
 
-Then create a ``webpack.config.js`` file with this line inside:
+Create a ``webpack.config.js`` file with this line inside:
 
 ```
 module.exports = require("folke-webpack-config");
+```
+
+Edit your ``package.json`` file. Your ``script`` section should look like this:
+
+```
+"scripts": {
+    "prepublish": "typings install && webpack",
+    "build": "webpack",
+    "watch": "webpack -w"
+  }
 ```
