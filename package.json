@@ -1,6 +1,6 @@
 {
   "name": "folke-webpack-config",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A default webpack config",
   "main": "index.js",
   "scripts": {
