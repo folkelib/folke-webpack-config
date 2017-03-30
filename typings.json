@@ -1,7 +1,0 @@
-{
-  "name": "folke-webpack-config",
-  "dependencies": {},
-  "globalDependencies": {
-    "node": "registry:env/node#6.0.0+20160723033700"
-  }
-}

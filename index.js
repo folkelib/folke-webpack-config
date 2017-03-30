@@ -31,9 +31,7 @@ module.exports = {
         publicPath: '/'
     },
     resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
-        modulesDirectories: ['node_modules'],
-        root: path.resolve("./node_modules")
+        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
     },
     module: {
         loaders: [
